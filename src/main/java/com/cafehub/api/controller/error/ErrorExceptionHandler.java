@@ -1,6 +1,6 @@
 package com.cafehub.api.controller.error;
 
-import com.cafehub.api.config.ErrorsMessage;
+import com.cafehub.api.config.Keys;
 import com.cafehub.api.exception.DataNotFoundException;
 import com.cafehub.api.exception.InvalidParameterException;
 import org.springframework.dao.DataAccessException;
@@ -19,7 +19,7 @@ public class ErrorExceptionHandler {
     public Error handlerMethodNotAllowedException() {
         return Error.builder()
                     .code(HttpStatus.NOT_FOUND.value())
-                    .message(ErrorsMessage.PATH_NOT_FOUND)
+                    .message(Keys.Messages.PATH_NOT_FOUND)
                     .build();
     }
 
@@ -29,7 +29,7 @@ public class ErrorExceptionHandler {
     public Error handlerDataAccessException() {
         return Error.builder()
                     .code(HttpStatus.INTERNAL_SERVER_ERROR.value())
-                    .message(ErrorsMessage.CONNECT_ERROR_MESSAGE)
+                    .message(Keys.Messages.CONNECT_ERROR_MESSAGE)
                     .build();
     }
 
@@ -59,7 +59,7 @@ public class ErrorExceptionHandler {
     public Error handlerException() {
         return Error.builder()
                     .code(HttpStatus.INTERNAL_SERVER_ERROR.value())
-                    .message(ErrorsMessage.SERVER_ERROR_MESSAGE)
+                    .message(Keys.Messages.SERVER_ERROR_MESSAGE)
                     .build();
     }
 }
