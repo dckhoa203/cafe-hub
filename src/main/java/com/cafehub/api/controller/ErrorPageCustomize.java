@@ -1,4 +1,4 @@
-package com.cafehub.api.controller.error;
+package com.cafehub.api.controller;
 
 import org.springframework.boot.web.server.ErrorPage;
 import org.springframework.boot.web.server.WebServerFactoryCustomizer;

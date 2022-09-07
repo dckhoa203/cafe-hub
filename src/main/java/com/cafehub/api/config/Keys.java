@@ -13,6 +13,9 @@ public class Keys {
         private static final String VERSION = "/v1/";
         public static final String GET_ALL_PROVINCE_PATH = VERSION + "provinces";
         public static final String PROVINCE_GET_BY_ID_PATH = VERSION + "province/{id}";
+
+        public static final String DISTRICT_GET_BY_PROVINCE_ID_PATH = VERSION + "{provinceId}/districts";
+        public static final String DISTRICT_GET_BY_ID_PATH = VERSION + "district/{id}";
     }
 
     public static class Messages {
@@ -23,5 +26,6 @@ public class Keys {
         public static final String PATH_NOT_FOUND = "End Point Not Found.";
         public static final String SERVER_ERROR_MESSAGE = "Internal Server Error.";
         public static final String PROVINCE_NOT_FOUND = "Province is not found. Id: [%s]";
+        public static final String DISTRICT_NOT_FOUND = "District is not found. Id: [%s]";
     }
 }

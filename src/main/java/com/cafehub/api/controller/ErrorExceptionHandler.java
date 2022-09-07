@@ -1,4 +1,4 @@
-package com.cafehub.api.controller.error;
+package com.cafehub.api.controller;
 
 import com.cafehub.api.config.Keys;
 import com.cafehub.api.exception.DataNotFoundException;

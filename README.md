@@ -10,7 +10,7 @@ Maven: https://maven.apache.org/download.cgi
 ## Run:
 After the build is completed, look for the class *ApiApplication.java* and start to run.\
 By default, the application will run on port 8080.\
-Look for the class *ApiPathConfig.java*, this class contains all the api endpoints.\
+Look for the class *Keys.APiPath.java*, this class contains all the api endpoints.\
 Example: [GET] http://localhost:8080/v1/provinces
 
     .

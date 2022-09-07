@@ -1,4 +1,4 @@
-package com.cafehub.api.controller.error;
+package com.cafehub.api.controller;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
