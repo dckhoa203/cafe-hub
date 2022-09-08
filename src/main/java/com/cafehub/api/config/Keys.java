@@ -16,6 +16,8 @@ public class Keys {
 
         public static final String DISTRICT_GET_BY_PROVINCE_ID_PATH = VERSION + "{provinceId}/districts";
         public static final String DISTRICT_GET_BY_ID_PATH = VERSION + "district/{id}";
+
+        public static final String WARD_GET_BY_DISTRICT_ID_PATH = VERSION + "{districtId}/wards";
     }
 
     public static class Messages {
