@@ -18,6 +18,7 @@ public class Keys {
         public static final String DISTRICT_GET_BY_ID_PATH = VERSION + "district/{id}";
 
         public static final String WARD_GET_BY_DISTRICT_ID_PATH = VERSION + "{districtId}/wards";
+        public static final String WARD_GET_BY_ID_PATH = VERSION + "ward/{id}";
     }
 
     public static class Messages {
@@ -29,5 +30,6 @@ public class Keys {
         public static final String SERVER_ERROR_MESSAGE = "Internal Server Error.";
         public static final String PROVINCE_NOT_FOUND = "Province is not found. Id: [%s]";
         public static final String DISTRICT_NOT_FOUND = "District is not found. Id: [%s]";
+        public static final String WARD_NOT_FOUND = "Ward is not found. Id: [%s]";
     }
 }

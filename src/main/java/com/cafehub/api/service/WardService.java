@@ -27,4 +27,9 @@ public class WardService {
                 String.format(Keys.Messages.DISTRICT_NOT_FOUND, districtId)));
         return wardRepository.getByDistrict(districtId);
     }
+
+    public Ward getById(final int id) {
+        var optionalWard = wardRepository.getById(id);
+        return optionalWard.orElseThrow(() -> new DataNotFoundException(String.format(Keys.Messages.WARD_NOT_FOUND, id)));
+    }
 }

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class WardRepositoryImpl implements WardRepository {
@@ -19,5 +20,10 @@ public class WardRepositoryImpl implements WardRepository {
     @Override
     public List<Ward> getByDistrict(final int districtId) {
         return wardMapper.getByDistrict(districtId);
+    }
+
+    @Override
+    public Optional<Ward> getById(final int id) {
+        return Optional.ofNullable(wardMapper.getById(id));
     }
 }

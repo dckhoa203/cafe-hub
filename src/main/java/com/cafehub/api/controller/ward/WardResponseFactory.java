@@ -18,4 +18,8 @@ public class WardResponseFactory {
         return !wards.isEmpty() ? wards.stream().map(ward -> mapper.map(ward, WardResponse.class))
                 .collect(Collectors.toList()) : Collections.emptyList();
     }
-}
+
+    public WardResponse toWardResponse(final Ward ward) {
+        return mapper.map(ward, WardResponse.class);
+    }
+ }

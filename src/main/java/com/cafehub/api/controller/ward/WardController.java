@@ -32,4 +32,13 @@ public class WardController {
         var wards = wardService.getByDistrict(Integer.parseInt(request.getDistrictId()));
         return responseFactory.toWardResponses(wards);
     }
+
+    @GetMapping(Keys.ApiPath.WARD_GET_BY_ID_PATH)
+    public WardResponse getById(@Valid final WardGetByIdRequest request, final BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            throw new InvalidParameterException(Utils.getErrorMessage(bindingResult));
+        }
+        var ward = wardService.getById(Integer.parseInt(request.getId()));
+        return responseFactory.toWardResponse(ward);
+    }
 }
