@@ -1,6 +1,11 @@
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: ${DATABASE_URL}
-    username: ${DATABASE_USERNAME}
-    password: ${DATABASE_PASSWORD}
+    url: ${URL}
+    username: ${USERNAME}
+    password: ${PASSWORD}
+
+  tomcat:
+    test-on-borrow: true
+    validation-query: SELECT 1
+    connection-properties: useUnicode=true;characterEncoding=utf-8

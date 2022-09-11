@@ -1,6 +1,7 @@
 package com.cafehub.api.controller.province;
 
 import com.cafehub.api.config.Keys;
+import com.cafehub.api.domain.province.Province;
 import com.cafehub.api.exception.InvalidParameterException;
 import com.cafehub.api.service.ProvinceService;
 import com.cafehub.api.utils.Utils;
@@ -27,7 +28,7 @@ public class ProvinceController {
 
     @GetMapping(Keys.ApiPath.GET_ALL_PROVINCE_PATH)
     public List<ProvinceResponse> getAll() {
-        var provinces = provinceService.getAll();
+        final List<Province> provinces = provinceService.getAll();
         return responseFactory.toProvinceResponses(provinces);
     }
 
@@ -36,7 +37,7 @@ public class ProvinceController {
         if (bindingResult.hasErrors()) {
             throw new InvalidParameterException(Utils.getErrorMessage(bindingResult));
         }
-        var province = provinceService.getById(Integer.parseInt(request.getId()));
+        final Province province = provinceService.getById(Integer.parseInt(request.getId()));
         return responseFactory.toProvinceResponse(province);
     }
 }

@@ -1,11 +1,9 @@
 package com.cafehub.api.config;
 
-import com.zaxxer.hikari.HikariConfig;
-import com.zaxxer.hikari.HikariDataSource;
+import org.apache.tomcat.jdbc.pool.DataSource;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import javax.sql.DataSource;
 
 @Configuration
 public class DataSourceConfig {
@@ -17,14 +15,23 @@ public class DataSourceConfig {
     private String username;
     @Value("${spring.datasource.password}")
     private String password;
+    @Value("${spring.tomcat.test-on-borrow}")
+    private boolean testOnBorrow;
+    @Value("${spring.tomcat.validation-query}")
+    private String validationQuery;
+    @Value("${spring.tomcat.connection-properties}")
+    private String connectionProperties;
 
     @Bean
-    public DataSource dataSource() {
-        HikariConfig config = new HikariConfig();
-        config.setDriverClassName(driverClassName);
-        config.setJdbcUrl(url);
-        config.setUsername(username);
-        config.setPassword(password);
-        return new HikariDataSource(config);
+    DataSource dataSource() {
+        DataSource dataSource = new DataSource();
+        dataSource.setDriverClassName(driverClassName);
+        dataSource.setUrl(url);
+        dataSource.setUsername(username);
+        dataSource.setPassword(password);
+        dataSource.setTestOnBorrow(testOnBorrow);
+        dataSource.setValidationQuery(validationQuery);
+        dataSource.setConnectionProperties(connectionProperties);
+        return dataSource;
     }
 }

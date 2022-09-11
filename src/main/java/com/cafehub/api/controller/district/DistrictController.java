@@ -1,6 +1,7 @@
 package com.cafehub.api.controller.district;
 
 import com.cafehub.api.config.Keys;
+import com.cafehub.api.domain.district.District;
 import com.cafehub.api.exception.InvalidParameterException;
 import com.cafehub.api.service.DistrictService;
 import com.cafehub.api.utils.Utils;
@@ -29,7 +30,7 @@ public class DistrictController {
         if (bindingResult.hasErrors()) {
             throw new InvalidParameterException(Utils.getErrorMessage(bindingResult));
         }
-        var districts = districtService.getByProvince(Integer.parseInt(request.getProvinceId()));
+        final List<District> districts = districtService.getByProvince(Integer.parseInt(request.getProvinceId()));
         return responseFactory.toDistrictResponses(districts);
     }
 
@@ -38,7 +39,7 @@ public class DistrictController {
         if (bindingResult.hasErrors()) {
             throw new InvalidParameterException(Utils.getErrorMessage(bindingResult));
         }
-        var district = districtService.getById(Integer.parseInt(request.getId()));
+        final District district = districtService.getById(Integer.parseInt(request.getId()));
         return responseFactory.districtResponse(district);
     }
 }

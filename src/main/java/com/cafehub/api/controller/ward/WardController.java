@@ -1,6 +1,7 @@
 package com.cafehub.api.controller.ward;
 
 import com.cafehub.api.config.Keys;
+import com.cafehub.api.domain.ward.Ward;
 import com.cafehub.api.exception.InvalidParameterException;
 import com.cafehub.api.service.WardService;
 import com.cafehub.api.utils.Utils;
@@ -29,7 +30,7 @@ public class WardController {
         if (bindingResult.hasErrors()) {
             throw new InvalidParameterException(Utils.getErrorMessage(bindingResult));
         }
-        var wards = wardService.getByDistrict(Integer.parseInt(request.getDistrictId()));
+        final List<Ward> wards = wardService.getByDistrict(Integer.parseInt(request.getDistrictId()));
         return responseFactory.toWardResponses(wards);
     }
 
@@ -38,7 +39,7 @@ public class WardController {
         if (bindingResult.hasErrors()) {
             throw new InvalidParameterException(Utils.getErrorMessage(bindingResult));
         }
-        var ward = wardService.getById(Integer.parseInt(request.getId()));
+        final Ward ward = wardService.getById(Integer.parseInt(request.getId()));
         return responseFactory.toWardResponse(ward);
     }
 }

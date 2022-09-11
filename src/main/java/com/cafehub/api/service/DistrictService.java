@@ -3,12 +3,14 @@ package com.cafehub.api.service;
 import com.cafehub.api.config.Keys;
 import com.cafehub.api.domain.district.District;
 import com.cafehub.api.domain.district.DistrictRepository;
+import com.cafehub.api.domain.province.Province;
 import com.cafehub.api.domain.province.ProvinceRepository;
 import com.cafehub.api.exception.DataNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class DistrictService {
@@ -22,14 +24,14 @@ public class DistrictService {
     }
 
     public List<District> getByProvince(final int provinceId) {
-        var optionalProvince = provinceRepository.getById(provinceId);
+        final Optional<Province> optionalProvince = provinceRepository.getById(provinceId);
         optionalProvince.orElseThrow(() -> new DataNotFoundException(
                 String.format(Keys.Messages.PROVINCE_NOT_FOUND, provinceId)));
         return districtRepository.getByProvince(provinceId);
     }
 
     public District getById(final int id) {
-        var districtOptional = districtRepository.getById(id);
+        final Optional<District> districtOptional = districtRepository.getById(id);
         return districtOptional.orElseThrow(() -> new DataNotFoundException(
                 String.format(Keys.Messages.DISTRICT_NOT_FOUND, id)));
     }

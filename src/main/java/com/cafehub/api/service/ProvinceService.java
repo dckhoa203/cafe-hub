@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProvinceService {
@@ -23,7 +24,7 @@ public class ProvinceService {
     }
 
     public Province getById(final int id) {
-        var provinceOptional = provinceRepository.getById(id);
+        final Optional<Province> provinceOptional = provinceRepository.getById(id);
         return provinceOptional.orElseThrow(() -> new DataNotFoundException(
                 String.format(Keys.Messages.PROVINCE_NOT_FOUND, id)));
     }
